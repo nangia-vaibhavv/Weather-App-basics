@@ -82,17 +82,17 @@ if(!location)
     console.log("Pls provide location to proceed!")
 }else
 {
-geoCode(location,(error, geodata)=>{
+geoCode(location,(error, {latitude, longitude})=>{
     if(error)
     {
         return console.log("error occured is:"+error)
     }
-    foreCast(geodata.latitude,geodata.longitude,(error, forecastdata)=>{
+    foreCast(latitude,longitude,(error, forecastdata)=>{
         if(error)
         {
             return console.log("error ossurred n forecast"+error)
         }
-        console.log("geoData", geodata)
+        console.log("geoData", latitude, longitude)
         console.log("Forecast Data", forecastdata);
         console.log("Error",error);
     })
